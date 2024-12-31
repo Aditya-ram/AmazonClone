@@ -1,8 +1,53 @@
-#amazon_header {
+.amazon_header {
   display: flex;
-  width: 100%;
+  align-items: center;
+  gap: 15px;
+  background-color: #0f1111;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 20px;
+  height: 10vh;
 }
 
-#amazon_search_bar {
-  width: 70%;
+.amazon_header > div > img {
+  width: 100px;
+}
+
+.image_suffix {
+  display: flex;
+  align-items: center;
+}
+#amazon_suffix {
+  color: white;
+  margin-bottom: 7px;
+  margin-left: 2px;
+  font-size: 15px;
+}
+
+.amazon_header_location {
+  display: flex;
+}
+
+.location_text {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.amazon_header_location:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+#update_location_text {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.header_dropdown {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 5px;
 }
