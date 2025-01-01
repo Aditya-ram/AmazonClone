@@ -3,7 +3,6 @@
     display:flex;
     justify-content: space-around;
     color:white;
-    position:fixed;
     width:100%;
     /* flex-wrap: wrap; */
 }
