@@ -1,0 +1,17 @@
+.NavBar{
+    background-color: #232f3e;
+    display:flex;
+    justify-content: space-around;
+    color:white;
+    position:fixed;
+    width:100%;
+    /* flex-wrap: wrap; */
+}
+#All{
+    display:flex;
+    align-items: center;
+    color:white;
+}
+#allSpan{
+    font-weight:200;
+}

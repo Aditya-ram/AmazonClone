@@ -7,6 +7,7 @@ import "../Header/Header.css";
 
 function Header() {
   return (
+    <>
     <div className="amazon_header">
       <div className="image_suffix">
         <img src={amazonImage} alt="" />
@@ -46,6 +47,7 @@ function Header() {
         <span>Cart</span>
       </div>
     </div>
+    </>
   );
 }
 
