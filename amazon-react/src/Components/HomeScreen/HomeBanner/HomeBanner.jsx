@@ -22,8 +22,8 @@ const HomeBanner = () => {
                     {item.imgs.map((it)=>{
                         return (
                           <div className="imgBannerHomeDiv">
-                            <img src={it} alt="" />
-                            <div>boat Stone 1800 Bluet</div>
+                            <img className="girdImg"src={it} alt="" />
+                            <div id="itemDes">boat Stone 1800 Bluet</div>
                           </div>
                         );
                     })

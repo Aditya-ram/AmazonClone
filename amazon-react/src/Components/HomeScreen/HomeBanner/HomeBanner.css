@@ -46,3 +46,9 @@
     display:flex;
     flex-direction: column;
 }
+#itemDes{
+    font-size: 14px;
+}
+.girdImg{
+    width:100px;
+}
