@@ -1,14 +1,14 @@
-import React from 'react'
-import HomeBanner from './HomeBanner/HomeBanner'
-import HomeDetails from './HomeBanner/HomeDetails/HomeDetails'
+// import React from "react";
+import HomeBanner from "./HomeBanner/HomeBanner";
+import HomeDetails from "./HomeDetails/HomeDetails";
 
 const HomeScreen = () => {
   return (
     <div>
-        <HomeBanner/>
-        <HomeDetails/>
+      <HomeBanner />
+      <HomeDetails />
     </div>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

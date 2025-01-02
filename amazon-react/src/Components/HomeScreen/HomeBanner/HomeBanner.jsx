@@ -1,6 +1,6 @@
-import React from 'react'
-import './HomeBanner.css'
-import homeBannerProduct from'../../../homeProduct.json'
+// import React from "react";
+import "./HomeBanner.css";
+import homeBannerProduct from "../../../homeProduct.json";
 const HomeBanner = () => {
   return (
     <div className="Banner">
@@ -10,34 +10,29 @@ const HomeBanner = () => {
         alt=""
       />
       <div className="grayBackGroundBanner"></div>
-    
-      <div className="homeBannerItemDiv">
-        {
-        homeBannerProduct.product.map((item)=>{
-            console.log(item);
-            return (
-              <div className="homeBannerItemCard">
-                <div className="homeBannerTitle">{item.itemTitle}</div>
-                <div className="imgHomeBannerItemDivCard">
-                    {item.imgs.map((it)=>{
-                        return (
-                          <div className="imgBannerHomeDiv">
-                            <img className="girdImg"src={it} alt="" />
-                            <div id="itemDes">boat Stone 1800 Bluet</div>
-                          </div>
-                        );
-                    })
-                    }
 
-                </div>
+      <div className="homeBannerItemDiv">
+        {homeBannerProduct.product.map((item, ind) => {
+          console.log(item);
+          return (
+            <div className="homeBannerItemCard" key={ind}>
+              <div className="homeBannerTitle">{item.itemTitle}</div>
+              <div className="imgHomeBannerItemDivCard">
+                {item.imgs.map((it, ind) => {
+                  return (
+                    <div key={ind} className="imgBannerHomeDiv">
+                      <img className="girdImg" src={it} alt="" />
+                      <div id="itemDes">boat Stone 1800 Bluet</div>
+                    </div>
+                  );
+                })}
               </div>
-            );
-        })
-       
-        }
+            </div>
+          );
+        })}
       </div>
     </div>
   );
-}
+};
 
-export default HomeBanner
+export default HomeBanner;

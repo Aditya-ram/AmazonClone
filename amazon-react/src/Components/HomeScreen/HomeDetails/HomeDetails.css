@@ -1,0 +1,30 @@
+.amazon_home_details_wrapper {
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+}
+
+.amazon_home_details_1 {
+  display: flex;
+  background-color: rgb(238, 235, 235);
+}
+
+.amazon_home_details_2 {
+  display: flex;
+}
+
+.item_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.amazon_home_details_1_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amazon_iphone {
+  width: 50px;
+  height: 50px;
+}
