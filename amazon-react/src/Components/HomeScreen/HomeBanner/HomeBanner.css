@@ -22,6 +22,7 @@
   position: absolute;
 }
 .homeBannerItemCard {
+  margin-left:5%;
   display: flex;
   background-color: white;
   flex-direction: column;
