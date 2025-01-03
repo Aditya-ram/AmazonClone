@@ -28,7 +28,7 @@
   flex-direction: column;
   width: 343px;
   box-sizing: border-box;
-  padding: 20px 0 15px;
+  padding: 20px 30px 15px;
 }
 .homeBannerTitle {
   margin: 0 20px;
@@ -36,6 +36,7 @@
   font-weight: 700;
 }
 .imgHomeBannerItemDivCard {
+  margin-top:5%;
   margin: 10px 20px;
   display: grid;
   grid-template-columns: auto auto;
@@ -51,4 +52,5 @@
 }
 .girdImg {
   width: 100px;
+  height:100px;
 }

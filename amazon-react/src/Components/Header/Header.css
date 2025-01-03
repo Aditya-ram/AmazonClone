@@ -46,7 +46,7 @@ html {
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 
 .amazon_header_location:hover {
