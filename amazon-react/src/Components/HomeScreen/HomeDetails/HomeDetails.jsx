@@ -17,21 +17,47 @@ const HomeDetails = () => {
       <div className="amazon_home_details_1">
         <div className="item_wrapper">
           <div id="TodaysDeals">Todays Deals</div>
-            <div className="amazon_home_details_1_item">
-              {array.map((item, ind) => {
-                return (
-                  <div className="image_wrapper" key={ind}>
-                    <div className="item_1_image">
-                      <img id="Deals_img_1"src={item.img} alt="" className="amazon_iphone" />
-                    </div>
-                    <div className="item_1_text_content">{item.name}</div>
+          <div className="amazon_home_details_1_item">
+            {array.map((item, ind) => {
+              return (
+                <div className="image_wrapper" key={ind}>
+                  <div className="item_1_image">
+                    <img
+                      id="Deals_img_1"
+                      src={item.img}
+                      alt=""
+                      className="amazon_iphone"
+                    />
                   </div>
-                );
-              })}
-            </div>
+                  <div className="item_1_text_content">{item.name}</div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-      <div className="amazon_home_details_2">Second Div</div>
+      <div className="amazon_home_details_2">
+        <div className="item_wrapper">
+          <div id="TodaysDeals">Todays Deals</div>
+          <div className="amazon_home_details_1_item">
+            {array.map((item, ind) => {
+              return (
+                <div className="image_wrapper" key={ind}>
+                  <div className="item_1_image">
+                    <img
+                      id="Deals_img_1"
+                      src={item.img}
+                      alt=""
+                      className="amazon_iphone"
+                    />
+                  </div>
+                  <div className="item_1_text_content">{item.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
