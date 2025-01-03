@@ -10,7 +10,7 @@ const NavBar = () => {
         <span id="allSpan">All</span>
       </div>
         {Arr.map((item, ind) => {
-          return <div>{item}</div>;
+          return <div className="NavBar_item"><center>{item}</center></div>;
         })}
     </div>
   );

@@ -10,7 +10,6 @@ const HomeBanner = () => {
         alt=""
       />
       <div className="grayBackGroundBanner"></div>
-
       <div className="homeBannerItemDiv">
         {homeBannerProduct.product.map((item, ind) => {
           console.log(item);
