@@ -15,7 +15,7 @@
 }
 .homeBannerItemDiv {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns:auto auto auto auto;
   gap: 20px;
   top: 22%;
   padding: 0 20px;
