@@ -77,3 +77,18 @@
   background-color: rgb(238, 235, 235);
   width: 100%;
 }
+@media only screen and (max-width:1400px) {
+  .amazon_home_details_1{
+    margin-top:400px;
+  }
+}
+@media only screen and (max-width:1150px) {
+  .amazon_home_details_1{
+    margin-top:1000px;
+  }
+}
+@media only screen and (max-width:700px) {
+  .amazon_home_details_1{
+    margin-top:2750px;
+  }
+}
