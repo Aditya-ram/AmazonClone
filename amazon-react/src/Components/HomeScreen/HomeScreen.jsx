@@ -9,7 +9,6 @@ const HomeScreen = () => {
     <div id="HomeScreenWrapper">
       <HomeBanner />
       <HomeDetails />
-      <Footer />
     </div>
   );
 };

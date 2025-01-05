@@ -1,5 +1,5 @@
 .amazon_footer_outer_wrapper {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -32,4 +32,7 @@ img {
 }
 .heading{
   margin-bottom:5px;
+}
+.footer_text{
+  color:rgb(238,235,235);
 }
