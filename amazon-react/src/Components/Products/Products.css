@@ -1,0 +1,33 @@
+.products_navBar{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;    /* height:5vh */
+    padding:5px;
+    flex-wrap:wrap;
+}
+.Electronics{
+    font-weight:700;
+}
+.Products_NavBar_Items{
+    cursor:pointer;
+}
+.main_content{
+    width:100%;
+}
+.SideBar{
+    width:15%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display:flex;
+    gap:15px;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.sideBarItems{
+    color:black;
+    font-weight:700;
+}
+.items{
+    margin-left:15px;
+}
