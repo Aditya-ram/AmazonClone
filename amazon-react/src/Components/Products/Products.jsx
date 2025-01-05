@@ -68,7 +68,10 @@ const Products = () => {
                 <div className="products_image">
                   <img className="laptop_image" src={product.imgs} alt="" />
                 </div>
-                <div className="products_description">{product.itemTitle}</div>
+                <div className="products_description">
+                  {product.itemTitle}
+                  <div><button className="addToCart">Add to cart</button></div>
+                </div>
               </div>
             );
           })}
