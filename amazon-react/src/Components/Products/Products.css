@@ -7,6 +7,7 @@
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; /* height:5vh */
   padding: 5px;
   flex-wrap: wrap;
+  font-family: Amazon Ember;
 }
 .Electronics {
   font-weight: 700;
@@ -19,6 +20,7 @@
   width: 100%;
 }
 .SideBar {
+  font-family: Amazon Ember;
   margin-top: 10px;
   padding-top: 20px;
   width: 25%;
