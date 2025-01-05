@@ -8,7 +8,7 @@ const HomeScreen = () => {
   return (
     <div id="HomeScreenWrapper">
       <HomeBanner />
-      <HomeDetails />
+      <HomeDetails/>
     </div>
   );
 };
