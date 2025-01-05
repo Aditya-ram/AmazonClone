@@ -25,7 +25,8 @@ const Cart = () => {
               <div className="free_shipping">Eligible for free shipping</div>
               <div>
                 <img
-                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px.CB485936079.png"
+                  className="fulfilledImg"
+                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
                   alt=""
                 />
               </div>
@@ -51,8 +52,8 @@ const Cart = () => {
               <div className="stock_status">In stock</div>
               <div className="free_shipping">Eligible for free shipping</div>
               <div>
-                <img
-                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px.CB485936079.png"
+                <img className="fulfilledImg"
+                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
                   alt=""
                 />
               </div>
