@@ -9,8 +9,8 @@ function App() {
 
   return (
     <div>
-      <Header />
       <BrowserRouter>
+      <Header />
       <NavBar/>
           <Routes>
             <Route  path="/" element={<HomeScreen/>}/>

@@ -4,15 +4,17 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ProductionQuantityLimitsOutlinedIcon from "@mui/icons-material/ProductionQuantityLimitsOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import "../Header/Header.css";
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function Header() {
   return (
     <>
     <div className="amazon_header">
-      <div className="image_suffix">
+      <Link to={"/"} className="image_suffix">
         <img src={amazonImage} alt="" />
         <span id="amazon_suffix">.in</span>
-      </div>
+      </Link>
       <div className="amazon_header_location">
         <LocationOnOutlinedIcon />
         <div className="location_text">
