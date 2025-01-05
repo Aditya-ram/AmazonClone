@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import HomeScreen from "./Components/HomeScreen/HomeScreen";
 import { BrowserRouter,Route,Routes } from "react-router-dom";
 import Products from "./Components/Products/Products";
+import Cart from "./Components/Cart/Cart";
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route  path="/" element={<HomeScreen/>}/>
             <Route  path="/products" element={<Products/>}/>
+            <Route  path="/cart" element={<Cart/>}/>
           </Routes>
       </BrowserRouter>
       

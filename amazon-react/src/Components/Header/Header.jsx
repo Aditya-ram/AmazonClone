@@ -42,10 +42,10 @@ function Header() {
         <div className="amazon_orders">& Orders</div>
       </div>
       <div className="amazon_cart_wrapper">
-        <div className="amazon_cart">
+        <Link to={'/cart'} className="amazon_cart">
           <span>0</span>
           <ProductionQuantityLimitsOutlinedIcon />
-        </div>
+        </Link>
         <span>Cart</span>
       </div>
     </div>

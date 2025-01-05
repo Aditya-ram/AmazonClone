@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="amazon_footer_outer_wrapper">
       <div className="amazon_footer_wrapper">
         <div className="amazon_footer_divs amazon_div">
-          <div>
+          <div className="heading">
             <b>Get to Know Us</b>
           </div>
           <div>About Amazon</div>
@@ -16,7 +16,7 @@ const Footer = () => {
           <div>Amazon Science</div>
         </div>
         <div className="amazon_footer_divs amazon_div">
-          <div>
+          <div className="heading">
             <b>Connect with us</b>
           </div>
           <div>Facebook</div>
@@ -24,7 +24,7 @@ const Footer = () => {
           <div>Instagram</div>
         </div>
         <div className="amazon_footer_divs amazon_div">
-          <div>
+          <div className="heading">
             <b>Make money with us</b>
           </div>
           <div>Sell on Amazon</div>
@@ -38,7 +38,7 @@ const Footer = () => {
           <div>Amazon Pay on Merchants</div>
         </div>
         <div className="amazon_footer_divs amazon_div">
-          <div>
+          <div className="heading">
             <b>Let Us Help You</b>
           </div>
           <div>Your Account</div>

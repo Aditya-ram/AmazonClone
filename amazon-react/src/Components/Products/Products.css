@@ -18,6 +18,7 @@
   width: 100%;
 }
 .SideBar {
+  /* margin-top:10px; */
   padding-top:20px;
   width: 25%;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
