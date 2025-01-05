@@ -69,7 +69,7 @@ const Cart = () => {
       </div>
       <div className="cart_purchase_card">
         <div className="total_items_and_cost">
-          Subtotal ({3} Items) :<b>Rs. {2000}</b>
+          Subtotal ({3} Items): <b> Rs. {2000}</b>
         </div>
         <div className="gift">
           <input type="checkbox" />
