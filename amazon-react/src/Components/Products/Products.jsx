@@ -12,10 +12,12 @@ const Products = () => {
   const [check,setCheck] = useState(false);
   const pointer = useRef(false);
   const handleCart = (item)=>{
-   setCheck(product.some((pro)=>{
+   const check = product.some((pro)=>{
     return(pro.id === item.id );
-  }));  console.log(check);
-        setProduct([...product, item]);
+  }); 
+  if(!check){
+          setProduct([...product, item]);
+        }
   } 
   useEffect(()=>{
     const storedProducts = localStorage.getItem("product");
