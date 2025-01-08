@@ -42,6 +42,8 @@ body {
 }
 
 .cart_image {
+  display: flex;
+  align-items: center;
   width: 25%;
 }
 
@@ -52,14 +54,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
+  width: 80%;
   gap: 10px;
-  padding-left: 10px;
+  padding:20px;
 }
 .cart_price {
   text-align: right;
   margin-top: 10px;
-  width: 35%;
+  width: 10%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -93,6 +95,7 @@ body {
 
 .cart_product_description {
   font-size: 20px;
+  width:100%;
 }
 
 .cart_purchase_card {

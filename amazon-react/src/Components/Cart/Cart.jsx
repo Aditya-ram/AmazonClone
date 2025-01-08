@@ -1,7 +1,44 @@
 // import React from "react";
+import { useEffect, useRef, useState } from "react";
 import "../Cart/Cart.css";
 
 const Cart = () => {
+  const [product,setProduct] = useState([]);
+  const [sum,setSum] = useState(0);
+  const pointer = useRef(false);
+  const handlePurchase = ()=>{
+    alert("Successfully purchased");
+  }
+  useEffect(()=>{
+      const item = localStorage.getItem("product");
+      console.log("item is ",item);
+      if(item){
+        setProduct(JSON.parse(item));
+      }
+  },[])
+
+  useEffect(()=>{
+    if(pointer.current){
+      localStorage.setItem("product",JSON.stringify(product));
+    }
+    else{
+      pointer.current = true;
+    }
+  },[product])
+
+  useEffect(()=>{
+    setSum(product.reduce((a,{price})=> a + price,0));
+
+  },[product])
+
+  const handleRemove = (id)=>{
+    console.log(product);
+      setProduct(product.filter((item)=>{
+        return( item.id != id)
+      })
+    )
+  }
+  console.log(sum);
   return (
     <div className="cart_main">
       <div className="cart_products_list">
@@ -11,71 +48,51 @@ const Cart = () => {
           <div>Price</div>
         </div>
         <div className="products_list_wrapper">
-          <div className="cart_product_card">
-            <div className="cart_image">
-              <img
-                className="image"
-                src="https://www.asus.com/media/Odin/Websites/global/Series/9.png"
-                alt=""
-              />
-            </div>
-            <div className="cart_text">
-              <div className="cart_product_description">Product Name</div>
-              <div className="stock_status">In stock</div>
-              <div className="free_shipping">Eligible for free shipping</div>
-              <div>
-                <img
-                  className="fulfilledImg"
-                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
-                  alt=""
-                />
+          {product.map((item) => {
+            return (
+              <div key={item.id} className="cart_product_card">
+                <div className="cart_image">
+                  <img
+                    className="image"
+                    src={item.imageUrl}
+                    alt=""
+                  />
+                </div>
+                <div className="cart_text">
+                  <div className="cart_product_description">{item.name}</div>
+                  <div className="stock_status">In stock</div>
+                  <div className="free_shipping">
+                    Eligible for free shipping
+                  </div>
+                  <div>
+                    <img
+                      className="fulfilledImg"
+                      src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <button onClick = {()=>{handleRemove(item.id)}} 
+                    className="cart_button_class">
+                      Remove From Basket
+                    </button>
+                  </div>
+                </div>
+                <div className="cart_price">Rs.{item.price}</div>
               </div>
-              <div>
-                <button className="cart_button_class">
-                  Remove From Basket
-                </button>
-              </div>
-            </div>
-            <div className="cart_price">Rs.{1500}</div>
-          </div>
-
-          <div className="cart_product_card">
-            <div className="cart_image">
-              <img
-                className="image"
-                src="https://www.asus.com/media/Odin/Websites/global/Series/9.png"
-                alt=""
-              />
-            </div>
-            <div className="cart_text">
-              <div className="cart_product_description">Product Name</div>
-              <div className="stock_status">In stock</div>
-              <div className="free_shipping">Eligible for free shipping</div>
-              <div>
-                <img className="fulfilledImg"
-                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
-                  alt=""
-                />
-              </div>
-              <div>
-                <button className="cart_button_class">
-                  Remove From Basket
-                </button>
-              </div>
-            </div>
-            <div className="cart_price">Rs.{1500}</div>
-          </div>
+            );
+          })}
         </div>
       </div>
       <div className="cart_purchase_card">
         <div className="total_items_and_cost">
-          Subtotal ({3} Items): <b> Rs. {2000}</b>
+          Subtotal ({product.length} Items): <b> Rs. {sum}</b>
         </div>
         <div className="gift">
           <input type="checkbox" />
           <label>This Order Contains a gift</label>
         </div>
-        <button className="cart_button_class proceed_to_buy">
+        <button onClick = {handlePurchase} className="cart_button_class proceed_to_buy">
           Proceed to Buy
         </button>
       </div>

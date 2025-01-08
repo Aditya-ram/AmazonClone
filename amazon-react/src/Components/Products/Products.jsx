@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../Products/products.css";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
-
-import ProductsArray from "../../productPageData.json";
+import {useState} from 'react';
+import ProductsArray from "../../products.json";
 
 import laptopImage from "../../assets/laptopProductImage.png";
 
 const Products = () => {
+  const [product,setProduct] = useState([]);
+  const [check,setCheck] = useState(false);
+  const pointer = useRef(false);
+  const handleCart = (item)=>{
+   setCheck(product.some((pro)=>{
+    return(pro.id === item.id );
+  }));  console.log(check);
+        setProduct([...product, item]);
+  } 
+  useEffect(()=>{
+    const storedProducts = localStorage.getItem("product");
+    if (storedProducts) {
+      setProduct(JSON.parse(storedProducts)); // Set products from localStorage
+    }
+  },[])
+
+  useEffect(()=>{
+    if(pointer.current){
+      localStorage.setItem("product", JSON.stringify(product))
+    }
+    else{
+      pointer.current = true;
+    }
+  }, [product])
+// console.log("product is ",product);
+
   const Arr = [
     "Mobiles & Accessories",
     "Laptops and Accessories",
@@ -66,11 +92,14 @@ const Products = () => {
             return (
               <div key={index} className="products_card">
                 <div className="products_image">
-                  <img className="laptop_image" src={product.imgs} alt="" />
+                  <img className="laptop_image" src={product.imageUrl} alt="" />
                 </div>
                 <div className="products_description">
-                  {product.itemTitle}
-                  <div><button className="addToCart">Add to cart</button></div>
+                  {product.name}
+                </div>
+                <div className = "products_price_and_cart">
+                  <div className = "products_price">{product.price} Rs</div>
+                  <div><button onClick={()=>{handleCart(product)}} className="addToCart">Add to cart</button></div>
                 </div>
               </div>
             );
