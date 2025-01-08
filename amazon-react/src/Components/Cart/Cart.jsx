@@ -27,8 +27,12 @@ const Cart = () => {
   },[product])
 
   useEffect(()=>{
-    setSum(product.reduce((a,{price})=> a + price,0));
-
+    if(pointer.current){    
+      setSum(product.reduce((a,{price})=> a + price,0));
+  }
+  else{
+    pointer.current = true;
+  }
   },[product])
 
   const handleRemove = (id)=>{
