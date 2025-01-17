@@ -8,12 +8,12 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: "Arial Narrow",Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 .amazon_header {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 15px;
   background-color: #0f1111;
@@ -88,6 +88,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .amazon_account {
@@ -116,5 +117,5 @@ html {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color:white
+  color: white;
 }
