@@ -14,12 +14,28 @@ const Products = () => {
   const [prodFromBackend,setProdFromBackend] = useState([]);
   const [check, setCheck] = useState(false);
   const pointer = useRef(false);
-  const handleCart = (item) => {
+  
+  const handleCart = async(item) => {
     const check = product.some((pro) => {
       return pro.id === item.id;
     });
     if (!check) {
       setProduct([...product, item]);
+      console.log(product);
+      
+      try{
+         const response = await axios.post("http://localhost:5002/cart/cartPost", item);
+         console.log(response);
+         if(response.status == 200){
+          console.log("successful");
+         }
+         else{
+          console.log("failed");
+         }
+
+      }catch(err){
+        console.log(err);
+      }
     }
   };
   useEffect(() => {
