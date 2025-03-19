@@ -9,7 +9,7 @@ const HomeBanner = () => {
     axios.get('http://localhost:5002/appliances/getAppliances').then((res)=>{
       setAppliances(res.data.response);
     }).catch((error)=>{
-      Response.status(404).json({message:"products not found"})
+      console.log(error);
     })
   },[])
 

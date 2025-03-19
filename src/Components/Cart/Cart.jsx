@@ -2,9 +2,12 @@
 import { useEffect, useRef, useState } from "react";
 import "../Cart/Cart.css";
 import Footer from "../Footer/Footer";
+import axios from "axios";
+
 
 const Cart = () => {
   const [product, setProduct] = useState([]);
+  const [cart,setCart] = useState([]);
   const [sum, setSum] = useState(0);
   const pointer = useRef(false);
   const handlePurchase = () => {
@@ -17,6 +20,15 @@ const Cart = () => {
       setProduct(JSON.parse(item));
     }
   }, []);
+  useEffect(()=>{
+    axios.get("http://localhost:5002/cart/cartPost")
+    .then((res)=>{
+      setCart(res.data.response);
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  },[])
 
   useEffect(() => {
     if (pointer.current) {
@@ -40,7 +52,22 @@ const Cart = () => {
       product.filter((item) => {
         return item.id != id;
       })
+      
     );
+    setCart(
+      cart.filter((item) => {
+        return item.id != id;
+      })
+      
+    );
+    console.log("id is ", id)
+    axios.delete("http://localhost:5002/cart/removeCart",{headers:{"Content-Type":"application/json"},data:{id}})
+    .then((res)=>{
+      console.log("response is ",res)
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
   };
   console.log(sum);
   return (
@@ -53,7 +80,7 @@ const Cart = () => {
             <div>Price</div>
           </div>
           <div className="products_list_wrapper">
-            {product.map((item) => {
+            {cart.map((item) => {
               return (
                 <div key={item.id} className="cart_product_card">
                   <div className="cart_image">
