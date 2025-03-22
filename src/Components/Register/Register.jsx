@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import AmazonSignUpLogo from "../../assets/Amazon-Logo.jpeg";
 import "../../Components/Register/Register.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [details, setDetails] = useState({email:"", password:""});
+
   const handleSignup = (event) => {
     event.preventDefault();
+    axios.post("", details).then((res)=>{
+      console.log(res);
+    }).catch((err)=>{
+      console.log(err);
+    });
     navigate("/login");
   };
+
+
+  const handleInput = (event)=>{
+    const name = event.target.name;
+    const value = event.target.value;
+    setDetails({...details,[name]:value})
+  }
+
+  console.log("details",details);
   return (
     <div className="amazon_sign_up_main_container">
       <div className="amazon_sign_up_logo">
@@ -21,9 +38,9 @@ const Register = () => {
         <div className="sign-up-info">
           <form action="" className="form_container">
             <div className="email_text">Enter mobile number or email</div>
-            <input type="email" className="input_bar" required />
+            <input type="email" name = "email" className="input_bar" required onChange = {handleInput}/>
             <div className="email_text">Enter the Password</div>
-            <input type="password" className="input_bar" required />
+            <input type="password" name = "password" className="input_bar" required onChange = {handleInput}/>
             <div className="continue_container">
               <button
                 className="continue_button"
