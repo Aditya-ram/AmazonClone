@@ -8,17 +8,14 @@ const Register = () => {
   const navigate = useNavigate();
   const [details, setDetails] = useState({email:"", password:""});
 
-  const handleSignup = (event) => {
+  const handleSignup = async (event) => {
     event.preventDefault();
-    axios.post("", details).then((res)=>{
-      console.log(res);
-    }).catch((err)=>{
-      console.log(err);
-    });
+    const res = await axios.post("http://localhost:5002/signup/createUser", details);
+    console.log(res);
     navigate("/login");
   };
 
-
+console.log("details",details)
   const handleInput = (event)=>{
     const name = event.target.name;
     const value = event.target.value;
@@ -36,7 +33,10 @@ const Register = () => {
           <div className="sign_up_text">Sign up</div>
         </div>
         <div className="sign-up-info">
-          <form action="" className="form_container">
+          <form action="" onSubmit={
+                  handleSignup
+                }
+            className="form_container">
             <div className="email_text">Enter mobile number or email</div>
             <input type="email" name = "email" className="input_bar" required onChange = {handleInput}/>
             <div className="email_text">Enter the Password</div>
@@ -44,9 +44,8 @@ const Register = () => {
             <div className="continue_container">
               <button
                 className="continue_button"
-                onSubmit={() => {
-                  handleSignup;
-                }}
+                type="submit"
+                
               >
                 Continue
               </button>
