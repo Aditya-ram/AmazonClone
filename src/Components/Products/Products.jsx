@@ -38,6 +38,15 @@ const Products = () => {
       }
     }
   };
+  useEffect(()=>{
+      axios.get("http://localhost:5002/cart/cartPost")
+      .then((res)=>{
+        setProduct(res.data.response);
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+  },[])
   useEffect(() => {
     const storedProducts = localStorage.getItem("product");
     if (storedProducts) {
