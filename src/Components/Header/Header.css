@@ -119,3 +119,53 @@ html {
   text-decoration: none;
   color: white;
 }
+.loginOption{
+  color:white;
+  cursor: pointer;
+}
+.loginCont{
+  display:flex;
+  align-items: center;
+  gap:20px;
+  justify-content:space-between;
+}
+.logoutOption{
+  cursor: pointer;
+  color:white;
+}
+.logoutOption:hover{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  height:40px;
+  width:70px;
+  border:1px solid white;
+  border-radius: 10px;
+}
+/* .signUptext{
+  font-size:50px;
+  color:yellow;
+} */
+.amazon_account_list > div:nth-child(1){
+  font-size:16px;
+}
+.amazon_account_list > div:nth-child(1):hover{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  height:40px;
+  width:150px;
+  border:1px solid white;
+  border-radius: 10px;
+
+}
+.loginOption:hover{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  height:40px;
+  width:50px;
+  border:1px solid white;
+  border-radius: 10px;
+
+}

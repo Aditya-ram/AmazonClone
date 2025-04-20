@@ -5,12 +5,32 @@ import ProductionQuantityLimitsOutlinedIcon from "@mui/icons-material/Production
 import SearchIcon from "@mui/icons-material/Search";
 import "../Header/Header.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 function Header() {
   const navigate = useNavigate();
+  const [cart,setCart] = useState([]);
   const handleNavigate = () => {
     navigate("./sign-up");
   };
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    let name = localStorage.getItem("login");
+    console.log(name);
+    setUser(JSON.parse(name));
+  }, []);
+
+  useEffect(()=>{
+    let username = JSON.parse(localStorage.getItem("login"));
+    axios.post("http://localhost:5002/cart/getCart",{username:username},)
+    .then((res)=>{
+    setCart(res.data.response);
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  })
+
   return (
     <>
       <div className="amazon_header">
@@ -31,26 +51,47 @@ function Header() {
             <SearchIcon />
           </div>
         </div>
-        <div className="amazon_account_list" onClick={handleNavigate}>
-          <div>Hello, sign in</div>
-          <div className="amazon_account">
-            <div>Account and lists</div>
-            <span>
-              <ArrowDropDownIcon />
-            </span>
+        <div className="amazon_account_list" >
+          {localStorage.getItem("login") ? (
+            <div className="amazon_account">
+              <div>Welcome {JSON.parse(localStorage.getItem("login"))}</div>
+              <span>
+                <ArrowDropDownIcon />
+              </span>
+            </div>
+          ) : (
+            <div className="signUptext" onClick={handleNavigate}>Hello, sign Up</div>
+          )}
+        </div>
+        {localStorage.getItem("login") ? (
+          <div className="loginCont">
+            <div className="amazon_cart_wrapper">
+              <Link to={"/cart"} className="amazon_cart">
+                <span>{cart.length}</span>
+                <ProductionQuantityLimitsOutlinedIcon />
+              </Link>
+              <span>Cart</span>
+            </div>
+            <div
+              className="logoutOption"
+              onClick={() => {
+                localStorage.removeItem("login");
+                navigate("/");
+              }}
+            >
+              Logout
+            </div>
           </div>
-        </div>
-        <div className="amazon_returns_and_orders">
-          <div className="amazon_returns">Returns</div>
-          <div className="amazon_orders">& Orders</div>
-        </div>
-        <div className="amazon_cart_wrapper">
-          <Link to={"/cart"} className="amazon_cart">
-            <span>0</span>
-            <ProductionQuantityLimitsOutlinedIcon />
-          </Link>
-          <span>Cart</span>
-        </div>
+        ) : (
+          <div
+            onClick={() => {
+              navigate("/login");
+            }}
+            className="loginOption"
+          >
+            Login
+          </div>
+        )}
       </div>
     </>
   );

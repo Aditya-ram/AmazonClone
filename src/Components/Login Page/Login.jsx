@@ -14,12 +14,13 @@ const Login = () => {
     const res = await axios.post("http://localhost:5002/login/loginUser", details);
     console.log(res.data,"response");
 
-    // if(res.data.response.email){
-    //   navigate("/");
-    // }
-    // else{
-    //   alert("Enter valid credentials");
-    // }
+    if(!res.data.response){
+      alert("Enter valid credentials");
+    }
+    else{
+      localStorage.setItem("login",JSON.stringify(res.data.response.name))
+      navigate("/");
+    }
   };
 
   console.log(details);

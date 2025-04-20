@@ -16,13 +16,14 @@ const Products = () => {
   const pointer = useRef(false);
   
   const handleCart = async(item) => {
+    delete item._id;
     const check = product.some((pro) => {
-      return pro.id === item.id;
+      return pro.id == item.id;
     });
+    console.log("check is ",check)
     if (!check) {
+      item.username = JSON.parse(localStorage.getItem("login"))
       setProduct([...product, item]);
-      console.log(product);
-      
       try{
          const response = await axios.post("http://localhost:5002/cart/cartPost", item);
          console.log(response);
@@ -38,9 +39,11 @@ const Products = () => {
       }
     }
   };
+
   useEffect(()=>{
       axios.get("http://localhost:5002/cart/cartPost")
       .then((res)=>{
+        console.log("product response is ", res.data);
         setProduct(res.data.response);
       })
       .catch((err)=>{
@@ -69,6 +72,8 @@ const Products = () => {
     .catch((err)=>{
       res.status(404).json({message:"Products Not Found"});
     })
+    console.log("Product is second time", product)
+
   },[])
   // console.log("product is ",product);
 
@@ -136,14 +141,17 @@ const Products = () => {
                 <div className="products_price_and_cart">
                   <div className="products_price">{product.price} Rs</div>
                   <div>
-                    <button
+                    {
+                      localStorage.getItem("login")?
+                      <button
                       onClick={() => {
                         handleCart(product);
                       }}
                       className="addToCart"
                     >
                       Add to cart
-                    </button>
+                    </button>:""
+                    }
                   </div>
                 </div>
               </div>

@@ -4,24 +4,27 @@ import "../Cart/Cart.css";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 
-
 const Cart = () => {
   const [product, setProduct] = useState([]);
   const [cart,setCart] = useState([]);
   const [sum, setSum] = useState(0);
+  const [cartL,setCartL] = useState(0);
   const pointer = useRef(false);
   const handlePurchase = () => {
     alert("Successfully purchased");
   };
   useEffect(() => {
     const item = localStorage.getItem("product");
-    console.log("item is ", item);
     if (item) {
       setProduct(JSON.parse(item));
     }
   }, []);
+
+  
   useEffect(()=>{
-    axios.get("http://localhost:5002/cart/cartPost")
+    let username = JSON.parse(localStorage.getItem("login"));
+    console.log("username is ",username);
+    axios.post("http://localhost:5002/cart/getCart",{username:username},)
     .then((res)=>{
       setCart(res.data.response);
     })
@@ -47,7 +50,6 @@ const Cart = () => {
   }, [product]);
 
   const handleRemove = (id) => {
-    console.log(product);
     setProduct(
       product.filter((item) => {
         return item.id != id;
@@ -69,7 +71,6 @@ const Cart = () => {
       console.log(err);
     })
   };
-  console.log(sum);
   return (
     <>
       <div className="cart_main">
